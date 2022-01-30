@@ -1,0 +1,66 @@
+html {
+  font-family: "Noto Sans KR", sans-serif;
+}
+body {
+  margin: 0;
+}
+div,
+section,
+header,
+footer,
+p,
+h1,
+h2 {
+  box-sizing: border-box;
+}
+a {
+  color: royalblue;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.global-width {
+  max-width: 620px; /* 모바일 기기는 620px보다 줄어들어야함 */
+  margin: 0 auto;
+  padding: 0 1rem; /* 620px일때 양옆이 너무 붙어있으니 공간 주기 */
+  /* 1rem == 16px */
+}
+.scroll-graphic {
+  /* 스크롤 내릴때 이미지가 브라우저에 닿을때 고정되있는 상태 */
+  position: sticky;
+  top: 0; /* sticky가 지정한 top의 위치 */
+  /* 높이 지정이 없음으로 따로 지정함 */
+  height: 100vh;
+}
+
+.graphic-item {
+  /* 화면 가운데에서 이미지 바뀌기 */
+  /* 이미지를 화면에 꽉채우고 센터 정렬*/
+  display: flex;
+  align-items: center; /* 세로 방향 센터 정렬 */
+  justify-content: center; /* 가로 방향 센터 정렬 */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.scene-img {
+  /* 높이가 줄어들면 이미지에 제한두기 */
+  max-height: 100vh;
+}
+
+.scroll-text {
+  position: relative;
+}
+
+.step {
+  margin-bottom: 60vh;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+}
