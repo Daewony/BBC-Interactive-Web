@@ -41,11 +41,17 @@ img {
   display: flex;
   align-items: center; /* 세로 방향 센터 정렬 */
   justify-content: center; /* 가로 방향 센터 정렬 */
-  position: absolute;
+  position: absolute; /* 이미지가 겹쳐 있을 것임 */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.visible {
+  opacity: 1;
 }
 
 .scene-img {
@@ -54,7 +60,8 @@ img {
 }
 
 .scroll-text {
-  position: relative;
+  position: relative; /* z-index 가짐 */
+  padding-bottom: 1px;
 }
 
 .step {
