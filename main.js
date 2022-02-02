@@ -1,4 +1,23 @@
 (() => {
+
+    const actions = {
+        birdFlies(key) {
+            if(key) {
+                document.querySelector('[data-index="2"] .brid').style.transform = `translateX(${window.innerWidth - 50}px)`; 
+            } else{
+                document.querySelector('[data-index="2"] .brid').style.transform = `translateX(-100%)`; 
+            }            
+        },
+        birdFlies2(key){
+            if(key) {
+                document.querySelector('[data-index="5"].brid').style.transform = `translate(${window.innerWidth}px, ${-window.innerHeight * 0.7}px)`;
+            } else {
+                document.querySelector('[data-index="5"].bird').style.transform = `translateX(-100%)`;
+            }
+        }
+
+    }
+
     // 데이터 가져오기
     const stepElems = document.querySelectorAll('.step');
     const graphicElems = document.querySelectorAll('.graphic-item');
@@ -20,14 +39,18 @@
         graphicElems[i].dataset.index = i;
     }
 
-    function activate(){
+    // 이미지 불투명도로 변화 시키는 함수
+    function activate(action){
         currentItem.classList.add('visible');
+        if(action) actions[action](true);
     }
 
-    function inactivate(){
+    function inactivate(action){
         currentItem.classList.remove('visible');
+        if(action) actions[action](false);
     }
 
+    // 텍스트 기준으로 이미지 불투명도 조절 
     window.addEventListener('scroll',() =>{
         let step;
         let boundingRect;
@@ -47,8 +70,7 @@
                 inactivate();
                 // graphicElems[step.dataset.index].classList.add('visible');
                 currentItem = graphicElems[step.dataset.index];
-                activate();
-                
+                activate(currentItem.dataset.action);
             }
         }
 
